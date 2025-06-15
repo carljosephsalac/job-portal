@@ -24,10 +24,10 @@
                                 Job Seeker
                             </option>
                         </x-select-input>
-                        <x-input type="text" name="name" id="name" placeholder="Don Juan">
+                        <x-input type="text" name="name" id="name" placeholder="LeBron James">
                             Name
                         </x-input>
-                        <x-input type="email" name="email" id="email" placeholder="name@company.com">
+                        <x-input type="email" name="email" id="email" placeholder="salac@company.com">
                             Email
                         </x-input>
                         <x-input type="password" name="password" id="password" placeholder="Type here">

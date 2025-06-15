@@ -14,7 +14,7 @@
                     </h1>
                     <form class="space-y-4 md:space-y-6" action="{{ route('loginUser') }}" method="POST">
                         @csrf
-                        <x-input type="email" name="email" id="email" placeholder="name@company.com">
+                        <x-input type="email" name="email" id="email" placeholder="salac@company.com">
                             Email
                         </x-input>
                         <x-input type="password" name="password" id="password" placeholder="••••••••">

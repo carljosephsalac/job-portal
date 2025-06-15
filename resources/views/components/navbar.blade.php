@@ -16,7 +16,7 @@
                 {{-- <img class="rounded-full size-8" src="{{ asset('student-management-logo.png') }}" alt="logo"> --}}
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
                     {{-- <h1 class="sm:hidden">SGMS</h1> --}}
-                    <h1 class="hidden sm:block">Job Portal System</h1>
+                    <h1 class="hidden sm:block">KayodNow Job Portal</h1>
                 </span>
             </a>
         </div>
