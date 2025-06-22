@@ -18,6 +18,12 @@ Route::controller(AuthController::class)->group(function() {
 
 Route::controller(JobPortalController::class)->group(function() {
     Route::middleware('auth')->group(function() {
+        Route::get('/job-portals/create', 'create')->name('job-portals.create');
         Route::get('/job-portals', 'index')->name('job-portals.index');
+        Route::post('/job-portals', 'store')->name('job-portals.store');
+        Route::get('/job-portals/{id}', 'show')->name('job-portals.show');
+        Route::get('/job-portals/edit/{id}', 'edit')->name('job-portals.edit');
+        Route::patch('/job-portals/update/{id}', 'update')->name('job-portals.update');
+        Route::delete('/job-portals/destroy/{id}', 'destroy')->name('job-portals.destroy');
     });
 });

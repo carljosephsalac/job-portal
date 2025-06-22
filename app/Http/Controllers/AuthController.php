@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
@@ -46,9 +48,24 @@ class AuthController extends Controller
             'password' => 'required|min:8|confirmed'
         ]);
 
-        $user = User::create($validated);
+        $hashedPassword = Hash::make($validated['password']);
+        $now = now();
 
-        Auth::login($user);
+        DB::statement("
+            INSERT INTO users (name, type, email, password, created_at, updated_at)
+            VALUES (?, ?, ?, ?, ?, ?)
+        ", [
+            $validated['name'],
+            $validated['type'],
+            $validated['email'],
+            $hashedPassword,
+            $now,
+            $now
+        ]);
+
+        $user = DB::selectOne("SELECT * FROM users WHERE email = ?", [$validated['email']]);
+
+        Auth::loginUsingId($user->id);
 
         $request->session()->regenerate();
 
