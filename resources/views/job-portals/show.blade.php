@@ -71,21 +71,23 @@
                                     id="description" rows="8" name="description" readonly placeholder="Your description here">{{ $jobPost->description }}</textarea>
                             </div>
                         </div>
-                        <div class="flex justify-between">
-                            <a class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
-                                href="{{ route('job-portals.edit', $jobPost->id) }}">
-                                Edit
-                            </a>
-                            <form class="inline-block ml-2" action="{{ route('job-portals.destroy', $jobPost->id) }}"
-                                method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit"
-                                    class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-white bg-red-600 rounded-lg focus:ring-4 focus:ring-red-200 dark:focus:ring-red-900 hover:bg-red-700">
-                                    Delete
-                                </button>
-                            </form>
-                        </div>
+                        @if (auth()->user()->id === $jobPost->user_id)
+                            <div class="flex justify-between">
+                                <a class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
+                                    href="{{ route('job-portals.edit', $jobPost->id) }}">
+                                    Edit
+                                </a>
+                                <form class="inline-block ml-2" action="{{ route('job-portals.destroy', $jobPost->id) }}"
+                                    method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit"
+                                        class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-white bg-red-600 rounded-lg focus:ring-4 focus:ring-red-200 dark:focus:ring-red-900 hover:bg-red-700">
+                                        Delete
+                                    </button>
+                                </form>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </section>
