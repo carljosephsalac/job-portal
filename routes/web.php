@@ -21,9 +21,9 @@ Route::controller(JobPortalController::class)->group(function() {
         Route::get('/job-portals/create', 'create')->name('job-portals.create');
         Route::get('/job-portals', 'index')->name('job-portals.index');
         Route::post('/job-portals', 'store')->name('job-portals.store');
-        Route::get('/job-portals/{jobPost}', 'show')->name('job-portals.show');
-        Route::get('/job-portals/edit/{jobPost}', 'edit')->name('job-portals.edit');
-        Route::patch('/job-portals/update/{jobPost}', 'update')->name('job-portals.update');
-        Route::delete('/job-portals/destroy/{jobPost}', 'destroy')->name('job-portals.destroy');
+        Route::get('/job-portals/{id}', 'show')->name('job-portals.show');
+        Route::get('/job-portals/edit/{id}', 'edit')->name('job-portals.edit');
+        Route::patch('/job-portals/update/{id}', 'update')->name('job-portals.update');
+        Route::delete('/job-portals/destroy/{id}', 'destroy')->name('job-portals.destroy');
     });
 });
